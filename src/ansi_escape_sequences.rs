@@ -18,3 +18,11 @@ impl Display for BackgroundColorRGB {
         write!(f, "48;2;{};{};{}m", self.0, self.1, self.2)
     }
 }
+
+pub struct ClearScreen;
+
+impl Display for ClearScreen {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "2J")
+    }
+}
