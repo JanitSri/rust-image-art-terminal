@@ -3,7 +3,7 @@
 
 use image::imageops::FilterType;
 use image_art::ansi_escape_sequences::{
-    BackgroundColorRGB, TextColorRGB, ClearScreen, CONTROL_SEQUENCE_INTRODUCER, RESET,
+    BackgroundColorRGB, ClearScreen, TextColorRGB, CONTROL_SEQUENCE_INTRODUCER, RESET,
 };
 use image_art::env_vars::Config;
 use std::env;
@@ -12,7 +12,7 @@ use std::fs::File;
 use std::io::{stdout, Error, Write};
 use std::process;
 
-use image::{GenericImageView, GenericImage, DynamicImage};
+use image::{DynamicImage, GenericImage, GenericImageView};
 
 const PIXEL_IDENTIFIER: &str = "●";
 
@@ -43,7 +43,7 @@ fn main() {
 
     let resized_img = resize_img(&img, config.get_resize_percentage());
     let (width, height) = resized_img.dimensions();
-    
+
     println!("{CONTROL_SEQUENCE_INTRODUCER}{ClearScreen}");
     let bg_color_rgb = BackgroundColorRGB(0, 0, 0);
     for y in 0..height {
@@ -60,7 +60,7 @@ fn resize_img(img: &image::DynamicImage, percentage: f32) -> DynamicImage {
     println!("Resizing imgae by {}", percentage);
     let (width, height) = img.dimensions();
     let nwidth = width as f32 * percentage;
-    let nheight = height as f32  * percentage;
+    let nheight = height as f32 * percentage;
     img.resize(nwidth as u32, nheight as u32, FilterType::Gaussian)
 }
 
