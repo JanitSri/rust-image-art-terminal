@@ -1,6 +1,6 @@
-use std::fmt::{Debug, Display};
+use std::fmt::Debug;
 use std::fs::File;
-use std::io::{stdout, Error, Write};
+use std::io::{Error, Write};
 
 pub fn write_to_file<T>(filename: &str, contents: T) -> Result<(), Error>
 where

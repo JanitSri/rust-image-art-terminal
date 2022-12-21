@@ -1,16 +1,12 @@
 use image::imageops::FilterType;
+use image::{DynamicImage, GenericImageView};
 use image_art::ansi_escape_sequences::{
     BackgroundColorRGB, TextColorRGB, CLEAR_SCREEN, CONTROL_SEQUENCE_INTRODUCER, RESET,
 };
 use image_art::env_vars::Config;
 use image_art::utils::write_to_file;
 use std::env;
-use std::fmt::{Debug, Display};
-use std::fs::File;
-use std::io::{stdout, Error, Write};
 use std::process;
-
-use image::{DynamicImage, GenericImage, GenericImageView};
 
 // https://en.wikipedia.org/wiki/Block_Elements
 const PIXEL_IDENTIFIER: &str = "\u{2588}";
