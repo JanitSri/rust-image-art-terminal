@@ -2,6 +2,7 @@
 pub struct Config {
     image_file_loc: String,
     resize_percentage: f32,
+    file_write: bool,
 }
 
 impl Config {
@@ -14,21 +15,31 @@ impl Config {
         };
 
         let resize = match args.next() {
-            Some(arg) => arg.parse::<f32>().unwrap_or_else(|_| 1.0),
+            Some(arg) => arg.parse::<f32>().unwrap_or_else(|_| 1.0).clamp(0.01, 1.0),
             None => 1.0,
+        };
+
+        let file_write = match args.next() {
+            Some(arg) => arg.parse::<bool>().unwrap_or_else(|_| false),
+            None => false,
         };
 
         Ok(Config {
             image_file_loc: image_loc,
             resize_percentage: resize,
+            file_write: file_write,
         })
     }
 
-    pub fn get_image_file_loc(&self) -> &String {
+    pub fn image_file_loc(&self) -> &String {
         &self.image_file_loc
     }
 
-    pub fn get_resize_percentage(&self) -> f32 {
+    pub fn resize_percentage(&self) -> f32 {
         self.resize_percentage
+    }
+
+    pub fn file_write(&self) -> bool {
+        self.file_write
     }
 }
