@@ -4,7 +4,7 @@ use image_art::ansi_escape_sequences::{
     BackgroundColorRGB, TextColorRGB, CLEAR_SCREEN, CONTROL_SEQUENCE_INTRODUCER, RESET,
 };
 use image_art::env_vars::Config;
-use image_art::utils::write_to_file;
+use image_art::utils;
 use std::env;
 use std::process;
 
@@ -27,7 +27,7 @@ fn main() {
     if config.file_write() {
         let filename = "resources/foo.txt";
         println!("Writing to file {filename}");
-        write_to_file(filename, img.pixels()).unwrap_or_else(|err| {
+        utils::write_to_file(filename, img.pixels()).unwrap_or_else(|err| {
             eprintln!("ERROR: Write to file {filename} {err}");
             process::exit(1);
         });
