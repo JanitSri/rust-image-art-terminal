@@ -8,7 +8,7 @@ use std::fmt::Error;
 
 // https://en.wikipedia.org/wiki/Block_Elements
 // https://en.wikipedia.org/wiki/Braille_Patterns
-const PIXEL_IDENTIFIER: &str = "\u{2588}";
+const PIXEL_IDENTIFIER: &str = "\u{28FF}";
 
 #[derive(Debug)]
 pub struct Image {
@@ -39,7 +39,6 @@ impl Image {
         })
     }
 
-    // todo: implment using braille as pixel_identifer
     pub fn display_img(&self) {
         println!("{CONTROL_SEQUENCE_INTRODUCER}{CLEAR_SCREEN}");
         let bg_color_rgb = BackgroundColorRGB(0, 0, 0);
@@ -53,4 +52,6 @@ impl Image {
             println!("{CONTROL_SEQUENCE_INTRODUCER}{RESET}");
         }
     }
+
+    // TODO: implement just using braille as pixel identifier and no color
 }
