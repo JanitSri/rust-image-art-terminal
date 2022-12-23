@@ -1,5 +1,5 @@
-mod utils;
 mod env_vars;
+mod utils;
 
 use image::GenericImageView;
 use image_art::Image;
@@ -28,6 +28,8 @@ fn main() {
         });
     }
 
-    let resized_img = img.resize_img(config.resize_percentage()).expect("Did not expect an error here on resizing");
+    let resized_img = img
+        .resize_img(config.resize_percentage())
+        .expect("Did not expect an error here on resizing");
     resized_img.display_img();
 }

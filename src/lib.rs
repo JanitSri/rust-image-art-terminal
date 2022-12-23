@@ -1,8 +1,10 @@
 mod ansi_escape_sequences;
 
+use ansi_escape_sequences::{
+    BackgroundColorRGB, TextColorRGB, CLEAR_SCREEN, CONTROL_SEQUENCE_INTRODUCER, RESET,
+};
+use image::{imageops::FilterType, DynamicImage, GenericImageView, ImageError};
 use std::fmt::Error;
-use image::{DynamicImage, ImageError, GenericImageView, imageops::FilterType};
-use ansi_escape_sequences::{CONTROL_SEQUENCE_INTRODUCER, CLEAR_SCREEN, BackgroundColorRGB, TextColorRGB, RESET};
 
 // https://en.wikipedia.org/wiki/Block_Elements
 // https://en.wikipedia.org/wiki/Braille_Patterns
@@ -16,8 +18,8 @@ pub struct Image {
 impl Image {
     pub fn new(image_file_loc: &str) -> Result<Self, ImageError> {
         match image::open(image_file_loc) {
-            Ok(img) => Ok(Image { img }), 
-            Err(e) => Err(e)
+            Ok(img) => Ok(Image { img }),
+            Err(e) => Err(e),
         }
     }
 
@@ -30,9 +32,11 @@ impl Image {
         let (width, height) = self.img.dimensions();
         let nwidth = width as f32 * percentage;
         let nheight = height as f32 * percentage;
-        Ok(
-            Image { img: self.img.resize(nwidth as u32, nheight as u32, FilterType::Gaussian) }
-        )
+        Ok(Image {
+            img: self
+                .img
+                .resize(nwidth as u32, nheight as u32, FilterType::Gaussian),
+        })
     }
 
     // todo: implment using braille as pixel_identifer
