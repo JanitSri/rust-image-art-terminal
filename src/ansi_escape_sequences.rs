@@ -2,7 +2,7 @@ use std::fmt::Display;
 
 pub const CONTROL_SEQUENCE_INTRODUCER: &str = "\x1b[";
 pub const RESET: &str = "0m";
-pub const CLEAR_SCREEN: &str = "2J";
+pub const _CLEAR_SCREEN: &str = "2J";
 
 pub struct TextColorRGB(pub u8, pub u8, pub u8);
 

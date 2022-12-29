@@ -1,8 +1,6 @@
 mod ansi_escape_sequences;
 
-use ansi_escape_sequences::{
-    BackgroundColorRGB, TextColorRGB, CLEAR_SCREEN, CONTROL_SEQUENCE_INTRODUCER, RESET,
-};
+use ansi_escape_sequences::{BackgroundColorRGB, TextColorRGB, CONTROL_SEQUENCE_INTRODUCER, RESET};
 use image::{imageops::FilterType, DynamicImage, GenericImageView, ImageError};
 use std::fmt::Error;
 
@@ -40,7 +38,6 @@ impl Image {
     }
 
     pub fn display_img(&self) {
-        println!("{CONTROL_SEQUENCE_INTRODUCER}{CLEAR_SCREEN}");
         let bg_color_rgb = BackgroundColorRGB(0, 0, 0);
         let (width, height) = self.img.dimensions();
         for y in 0..height {
