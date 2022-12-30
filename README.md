@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JanitSri/rust-image-art-terminal">
-    <img src="docs/rust-logo.png" alt="Logo" width="150" height="80">
+    <img src="docs/rust-logo2.png" alt="Logo" width="150" height="80">
   </a>
 
   <h2 align="center">Image Display in Terminal</h2>
