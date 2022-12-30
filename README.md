@@ -1,11 +1,22 @@
-# Image Display in Terminal
+<br />
+<div align="center">
+  <a href="https://github.com/JanitSri/rust-image-art-terminal">
+    <img src="docs/rust-logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h2 align="center">Image Display in Terminal</h2>
+
+  <p align="center">
+    Display Images in the Terminal using ASCII Symbols
+  </p>
+</div>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents** 
 
 - [Build and Running](#build-and-running)
-- [Example](#example)
+- [Demo](#demo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -28,6 +39,6 @@ cargo run path_to_image [resize_factor] [save_to_file]
 
 ***Note: command line arguments are sequential - proper order is required***
 
-## Example
+## Demo
 
-![Example Gif](./docs/example_gif.gif)
+![Example Gif](./docs/demo.gif)
