@@ -7,7 +7,7 @@
   <h2 align="center">Image Display in Terminal</h2>
 
   <p align="center">
-    Display Images in the Terminal using ASCII Symbols
+    Display Images in the Terminal using ANSI escape codes
   </p>
 </div>
 
